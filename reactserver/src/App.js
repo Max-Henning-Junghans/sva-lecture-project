@@ -1,7 +1,23 @@
+import { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const [posts, setPosts] = useState("Test1");
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/api/v1/helloworld')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data[0]["Hello World"]);
+        setPosts(data[0]["Hello World"]);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +31,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          {posts}
         </a>
       </header>
     </div>
