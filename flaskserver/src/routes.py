@@ -2,7 +2,7 @@
 from flask import (Blueprint)
 from flask_cors import CORS
 
-api = Blueprint('api', __name__, url_prefix='/api/v1')
+api = Blueprint('api', __name__, url_prefix='/v1')
 CORS(api)
 
 
