@@ -1,6 +1,8 @@
 """Handle the API endpoints for the API requests. Only returns data, no html."""
-from flask import (Blueprint)
+from flask import Blueprint, request
 from flask_cors import CORS
+
+import data
 
 api = Blueprint('api', __name__, url_prefix='/v1')
 CORS(api)
@@ -13,3 +15,20 @@ def index():
     :return: Hello World.
     """
     return [{"Hello World": "Hello World"}]
+
+
+@api.route("/createobject", methods=("POST",))
+def create_object():
+    data.data.append(request.json)
+    print(data.data)
+    return {'message': 'OK'}
+
+
+@api.route("/getobject", methods=("GET",))
+def get_object():
+    result = []
+    for single_object in data.data:
+        if single_object["name"] == "test":
+            result.append(single_object)
+    print(result)
+    return {'message': 'OK', "data": result}
