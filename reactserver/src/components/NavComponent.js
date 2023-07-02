@@ -7,7 +7,7 @@ export default function NavComponent() {
 			<NavLink className="d-flex align-items-center me-4 mb-2 mb-lg-0 text-light text-decoration-none"
 			         to="/index">Home</NavLink>
 			<NavLink className="d-flex align-items-center me-4 mb-2 mb-lg-0 text-light text-decoration-none"
-			         to="/placeholder">Placeholder</NavLink>
+			         to="/search">Search</NavLink>
 			<NavLink className="d-flex align-items-center me-4 mb-2 mb-lg-0 text-light text-decoration-none"
 			         to="/createobject">Create Object</NavLink>
 		</nav>

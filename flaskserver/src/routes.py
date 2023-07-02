@@ -24,11 +24,11 @@ def create_object():
     return {'message': 'OK'}
 
 
-@api.route("/getobject", methods=("GET",))
-def get_object():
+@api.route("/search/<object_name>", methods=("GET",))
+def get_by_name(object_name):
     result = []
     for single_object in data.data:
-        if single_object["name"] == "test":
+        if single_object["name"] == object_name:
             result.append(single_object)
     print(result)
     return {'message': 'OK', "data": result}
