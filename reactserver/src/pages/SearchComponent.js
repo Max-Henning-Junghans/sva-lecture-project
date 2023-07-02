@@ -54,8 +54,9 @@ const SearchComponent = () => {
 				{objects.length > 0 ? (
 					objects.map((object, index) => (
 						<li key={index}>
-							<strong>Name:</strong> {object.name}, <strong>Date:</strong>{" "}
-							{object.date}
+							<strong>Name:</strong> {object.name},
+							<strong>Date:</strong>{" "} {object.date},
+							<strong>Location:</strong>{" "} {object.location}
 						</li>
 					))
 				) : (

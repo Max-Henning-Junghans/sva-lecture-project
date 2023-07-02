@@ -1,8 +1,9 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 
 export default function CreateObjectsComponent() {
 	const [name, setName] = useState("");
 	const [date, setDate] = useState("");
+	const [location, setLocation] = useState("");
 
 
 	const handleSubmit = (event) => {
@@ -17,6 +18,7 @@ export default function CreateObjectsComponent() {
 			body: JSON.stringify({
 				name: name,
 				date: date,
+				location: location,
 			}),
 		})
 			.then((response) => {
@@ -56,6 +58,20 @@ export default function CreateObjectsComponent() {
 					       id="objectDate"
 					       value={date}
 					       onChange={(event) => setDate(event.target.value)}/>
+				</div>
+				<div className="mb-3">
+					<label htmlFor="locationOfObject" className="form-label">
+						Location of Object
+					</label>
+					<input type="text"
+					       className="form-control"
+					       id="locationOfObject"
+					       aria-describedby="locationHelp"
+					       value={location}
+					       onChange={(event) => setLocation(event.target.value)}/>
+					<div id="locationHelp" className="form-text">
+						Be precise.
+					</div>
 				</div>
 				<button type="submit" className="btn btn-primary">
 					Submit
